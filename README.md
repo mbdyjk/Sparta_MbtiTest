@@ -32,13 +32,13 @@ cd <project-directory>
 2️⃣ 필요한 패키지 설치
 
 ```bash
-yarn
+pnpm install
 ```
 
 3️⃣ 개발 서버 실행
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 ---

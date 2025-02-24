@@ -1,7 +1,12 @@
 import Header from "../components/Header";
 import SectionCard from "../components/SectionCard";
+import Button from "../components/common/Button";
 
 const Home = () => {
+  const handleClick = () => {
+    console.log("내 성격 알아보러 가기 클릭");
+  };
+
   return (
     <>
       <Header />
@@ -29,6 +34,15 @@ const Home = () => {
             title="팀 평가"
             description="팀 내에서 자신과 동료들의 성격을 이해하고 협력할 수 있는 방법을 배워보세요."
           />
+        </div>
+
+        <div className="text-center mt-6">
+          <Button
+            onClick={handleClick}
+            className="bg-red-500 text-white border-2 border-transparent hover:bg-transparent hover:text-red-600 hover:border-blue-500"
+          >
+            내 성격 알아보러 가기
+          </Button>
         </div>
       </div>
     </>

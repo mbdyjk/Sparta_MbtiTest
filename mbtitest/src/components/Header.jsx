@@ -2,7 +2,7 @@ import NavLink from "./common/NavLink";
 import Button from "./common/Button";
 
 const Header = () => {
-  const isLogin = true;
+  const isLogin = false;
 
   return (
     <header className="flex justify-between items-center w-full p-4 bg-white border-b border-gray-200 shadow-sm text-red-600">
@@ -16,7 +16,7 @@ const Header = () => {
           <>
             <NavLink to="/profile">프로필</NavLink>
             <NavLink to="/test">테스트</NavLink>
-            <NavLink to="/results">결과보기</NavLink>
+            <NavLink to="/testresult">결과보기</NavLink>
             <Button className="bg-red-700 hover:bg-red-600 text-white">
               로그아웃
             </Button>

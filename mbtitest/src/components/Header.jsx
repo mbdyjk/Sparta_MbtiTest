@@ -1,6 +1,6 @@
 import NavLink from "./common/NavLink";
 import Button from "./common/Button";
-import { useAuth } from "../context/auth/AuthContext";
+import { useAuth } from "../context/auth/useAuth";
 
 const Header = () => {
   const { isLogin } = useAuth();

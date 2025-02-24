@@ -1,7 +1,6 @@
-import { createContext, useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-
-const AuthContext = createContext(null);
+import { AuthContext } from "./AuthContext";
 
 export const AuthProvider = ({ children }) => {
   const [isLogin, setIsLogin] = useState(false);
@@ -30,8 +29,4 @@ export const AuthProvider = ({ children }) => {
 
 AuthProvider.propTypes = {
   children: PropTypes.node,
-};
-
-export const useAuth = () => {
-  return useContext(AuthContext);
 };

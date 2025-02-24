@@ -5,6 +5,7 @@ import Signup from "../pages/Signup";
 import Profile from "../pages/Profile";
 import Test from "../pages/Test";
 import TestResult from "../pages/TestResult";
+import ProtectedRoute from "./ProtectedRoute";
 
 const Router = () => {
   return (
@@ -13,9 +14,11 @@ const Router = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/test" element={<Test />} />
-        <Route path="/testresult" element={<TestResult />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/testresult" element={<TestResult />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

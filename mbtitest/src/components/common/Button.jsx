@@ -7,8 +7,8 @@ const Button = ({ onClick, children, className = "" }) => (
 );
 
 Button.propTypes = {
-  onClick: PropTypes.function.isRequired,
-  children: PropTypes.node.isRequired,
+  onClick: PropTypes.function,
+  children: PropTypes.node,
   className: PropTypes.string,
 };
 

@@ -6,10 +6,17 @@ import Profile from "../pages/Profile";
 import Test from "../pages/Test";
 import TestResult from "../pages/TestResult";
 import ProtectedRoute from "./ProtectedRoute";
+import { ToastContainer } from "react-toastify";
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -20,6 +27,7 @@ const Router = () => {
           <Route path="/testresult" element={<TestResult />} />
         </Route>
       </Routes>
+      <ToastContainer />
     </BrowserRouter>
   );
 };

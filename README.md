@@ -125,6 +125,28 @@ pnpm dev
 
 ---
 
+✨ Tailwind CSS 클래스 정렬 순서 규칙
+
+Tailwind CSS 클래스의 정렬 순서를 지정하면 일괄성이 복잡해지지 않고 보유복지가 막지 않아요! 하면 보기 쉽고 관리하기 편해지는 정보입니다.
+
+📌 정렬 순서
+
+1️⃣ 레이아웃 관련 (display, flex/grid 정렬) → flex, grid, hidden 등  
+2️⃣ 정렬 관련 (justify, align) → justify-, items- 등  
+3️⃣ 여백 관련 (padding, margin, gap) → p-, m-, gap- 등  
+4️⃣ 크기 관련 (width, height) → w-, h-, max-w-_ 등  
+5️⃣ 스타일 관련 (배경, 테두리, 그림자) → bg-, border-, shadow- 등  
+6️⃣ 텍스트 관련 (색상, 크기, 정렬) → text-, font-, leading-_ 등  
+7️⃣ 기타 효과 (opacity, transition, animation) → opacity-, transition-\* 등
+
+📌 예제
+
+```jsx
+<header className="flex justify-between items-center w-full p-4 bg-white border-b border-gray-200 shadow-sm text-red-600">
+```
+
+---
+
 ## 🛠️ 트러블 슈팅
 
 - **링크**:

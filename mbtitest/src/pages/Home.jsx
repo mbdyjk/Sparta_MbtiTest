@@ -1,10 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import SectionCard from "../components/SectionCard";
 import Button from "../components/common/Button";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    console.log("내 성격 알아보러 가기 클릭");
+    navigate("/test");
   };
 
   return (

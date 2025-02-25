@@ -5,18 +5,29 @@ import Signup from "../pages/Signup";
 import Profile from "../pages/Profile";
 import Test from "../pages/Test";
 import TestResult from "../pages/TestResult";
+import ProtectedRoute from "./ProtectedRoute";
+import { ToastContainer } from "react-toastify";
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/test" element={<Test />} />
-        <Route path="/testresult" element={<TestResult />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/testresult" element={<TestResult />} />
+        </Route>
       </Routes>
+      <ToastContainer />
     </BrowserRouter>
   );
 };

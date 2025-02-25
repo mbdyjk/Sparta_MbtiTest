@@ -1,8 +1,9 @@
 import NavLink from "./common/NavLink";
 import Button from "./common/Button";
+import { useAuth } from "../context/auth/useAuth";
 
 const Header = () => {
-  const isLogin = false;
+  const { isLogin } = useAuth();
 
   return (
     <header className="flex justify-between items-center w-full p-4 bg-white border-b border-gray-200 shadow-sm text-red-600">

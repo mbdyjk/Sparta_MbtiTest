@@ -20,7 +20,7 @@ const TestResultList = ({ user }) => {
     );
 
   const filteredResults = testResults?.filter(
-    (result) => result.visibility || result.userId === user?.id
+    (result) => result.visibility || result.userId === user.userId
   );
 
   return (
@@ -43,7 +43,11 @@ const TestResultList = ({ user }) => {
 
 TestResultList.propTypes = {
   user: PropTypes.shape({
-    id: PropTypes.string,
+    accessToken: PropTypes.string.isRequired,
+    userId: PropTypes.string.isRequired,
+    success: PropTypes.bool.isRequired,
+    avatar: PropTypes.string,
+    nickname: PropTypes.string.isRequired,
   }),
 };
 

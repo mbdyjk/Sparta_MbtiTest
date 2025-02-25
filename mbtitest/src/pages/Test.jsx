@@ -1,24 +1,26 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
 import TestForm from "../components/TestForm";
 import { calculateMBTI, mbtiDescriptions } from "../utils/mbtiCalculator";
 import { createTestResult } from "../api/testResults";
 import { questions } from "../data/questions";
+import { useAuth } from "../context/auth/useAuth";
 
-const Test = ({ user }) => {
+const Test = () => {
   const navigate = useNavigate();
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
+  const { currentUser } = useAuth();
 
   const handleTestSubmit = async (answers) => {
     setLoading(true);
     const mbtiResult = calculateMBTI(answers);
     setResult(mbtiResult);
 
+    console.log(currentUser);
     try {
       await createTestResult({
-        userId: user?.id || "guest",
+        userId: currentUser?.userId || "guest",
         mbti: mbtiResult,
         timestamp: new Date().toISOString(),
       });
@@ -31,7 +33,7 @@ const Test = ({ user }) => {
   };
 
   const handleNavigateToResults = () => {
-    navigate("/testresultyjko");
+    navigate("/testresult");
   };
 
   return (
@@ -69,12 +71,6 @@ const Test = ({ user }) => {
       </div>
     </div>
   );
-};
-
-Test.propTypes = {
-  user: PropTypes.shape({
-    id: PropTypes.string,
-  }),
 };
 
 export default Test;

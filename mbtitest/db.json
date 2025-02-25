@@ -9,34 +9,22 @@
   ],
   "testResults": [
     {
-      "id": "fc9f",
-      "userId": "guest",
+      "id": "a2ab",
+      "userId": "yjko",
       "mbti": "ESTJ",
-      "timestamp": "2025-02-25T05:22:00.370Z"
+      "timestamp": "2025-02-25T06:02:56.231Z"
     },
     {
-      "id": "7445",
+      "id": "71ad",
       "userId": "guest",
       "mbti": "ESTJ",
-      "timestamp": "2025-02-25T05:23:14.714Z"
+      "timestamp": "2025-02-25T06:08:05.344Z"
     },
     {
-      "id": "80cc",
-      "userId": "guest",
-      "mbti": "ESTJ",
-      "timestamp": "2025-02-25T05:23:31.698Z"
-    },
-    {
-      "id": "2f6d",
-      "userId": "guest",
-      "mbti": "ESTJ",
-      "timestamp": "2025-02-25T05:38:57.129Z"
-    },
-    {
-      "id": "1c7a",
-      "userId": "guest",
-      "mbti": "ESTJ",
-      "timestamp": "2025-02-25T05:40:03.512Z"
+      "id": "aec0",
+      "userId": "yjko",
+      "mbti": "ENFJ",
+      "timestamp": "2025-02-25T06:09:06.113Z"
     }
   ]
 }

@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
     const loginStatus = localStorage.getItem("isLogin") === "true";
     setIsLogin(loginStatus);
     const user = JSON.parse(localStorage.getItem("currentUser"));
+    console.log(user);
     setCurrentUser(user);
   }, []);
 

@@ -1,10 +1,13 @@
 import TestResultList from "../components/TestResultList";
 import PropTypes from "prop-types";
+import { useAuth } from "../context/auth/useAuth";
 
-const TestResult = ({ user }) => {
+const TestResult = () => {
+  const { currentUser } = useAuth();
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-6">
-      <TestResultList user={user} />
+      <TestResultList user={currentUser} />
     </div>
   );
 };

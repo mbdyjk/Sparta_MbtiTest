@@ -60,7 +60,11 @@ TestResultItem.propTypes = {
     visibility: PropTypes.bool.isRequired,
   }),
   user: PropTypes.shape({
-    id: PropTypes.string,
+    accessToken: PropTypes.string.isRequired,
+    userId: PropTypes.string.isRequired,
+    success: PropTypes.bool.isRequired,
+    avatar: PropTypes.string,
+    nickname: PropTypes.string.isRequired,
   }),
 };
 

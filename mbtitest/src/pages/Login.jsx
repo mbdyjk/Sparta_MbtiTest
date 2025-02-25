@@ -4,10 +4,12 @@ import { login } from "../api/auth";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/auth/useAuth";
 
 const Login = () => {
   const [formData, setFormData] = useState({ id: "", password: "" });
   const navigate = useNavigate();
+  const { login: setLogin } = useAuth();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,7 +18,8 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault(); // 폼이 제출되었을 때 새로고침 방지
     try {
-      await login(formData);
+      const user = await login(formData);
+      setLogin(user);
       toast.success("로그인 성공!");
       navigate("/");
     } catch (error) {

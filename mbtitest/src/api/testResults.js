@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/testResults";
+const API_URL = "https://leaf-discovered-casquette.glitch.me";
 
 // 결과 조회
 export const getTestResults = async () => {

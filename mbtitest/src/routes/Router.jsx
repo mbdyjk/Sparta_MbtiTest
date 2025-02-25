@@ -10,7 +10,7 @@ import { ToastContainer } from "react-toastify";
 
 const Router = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.REACT_APP_BASENAME || ""}>
       <ToastContainer
         position="top-right"
         autoClose={3000}

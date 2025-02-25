@@ -4,6 +4,7 @@ import {
   deleteTestResult,
 } from "../api/testResults";
 import PropTypes from "prop-types";
+import { mbtiDescriptions } from "../utils/mbtiCalculator";
 
 const TestResultItem = ({ result, user }) => {
   const queryClient = useQueryClient();
@@ -23,13 +24,13 @@ const TestResultItem = ({ result, user }) => {
     <li className="relative p-6 bg-gray-900 rounded-lg shadow-md text-white">
       {/* 작성자 정보 및 날짜 */}
       <div className="absolute right-4 top-4 text-xs text-gray-400">
-        {new Date(result.createdAt).toLocaleString()}
+        {new Date(result.timestamp).toLocaleString()}
       </div>
 
       {/* MBTI 및 설명 */}
       <h2 className="text-yellow-400 text-xl font-bold">{result.mbti}</h2>
       <p className="mt-2 text-gray-300">
-        {result.description || "설명이 없습니다."}
+        {mbtiDescriptions[result.mbti] || "설명이 없습니다."}
       </p>
 
       {/* 버튼 (본인만 보이게) */}
@@ -65,7 +66,7 @@ TestResultItem.propTypes = {
     userId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
       .isRequired,
     visibility: PropTypes.bool.isRequired,
-    createdAt: PropTypes.string.isRequired,
+    timestamp: PropTypes.string.isRequired,
   }).isRequired,
   user: PropTypes.shape({
     userId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])

@@ -1,23 +1,7 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 import Button from "./common/Button";
 
-const AuthForm = ({ mode, onSubmit }) => {
-  const [formData, setFormData] = useState({
-    id: "",
-    password: "",
-    nickname: mode === "register" ? "" : undefined,
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(formData);
-  };
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
+const AuthForm = ({ mode, formData, handleChange, handleSubmit }) => {
   return (
     <form
       onSubmit={handleSubmit}
@@ -61,7 +45,9 @@ const AuthForm = ({ mode, onSubmit }) => {
 
 AuthForm.propTypes = {
   mode: PropTypes.string,
-  onSubmit: PropTypes.function,
+  formData: PropTypes.object,
+  handleChange: PropTypes.function,
+  handleSubmit: PropTypes.function,
 };
 
 export default AuthForm;

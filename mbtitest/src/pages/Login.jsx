@@ -18,8 +18,8 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const { accessToken, user } = await login(formData);
-      setLogin(user, accessToken);
+      const user = await login(formData);
+      setLogin(user);
       toast.success("로그인 성공!");
       navigate("/");
     } catch (error) {

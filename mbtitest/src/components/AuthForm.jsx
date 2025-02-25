@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import Button from "./common/Button";
 
 const AuthForm = ({ mode, onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -18,7 +19,10 @@ const AuthForm = ({ mode, onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-4 w-80 p-6 bg-white rounded-lg shadow-md"
+    >
       <input
         type="text"
         name="id"
@@ -26,6 +30,7 @@ const AuthForm = ({ mode, onSubmit }) => {
         value={formData.id}
         onChange={handleChange}
         required
+        className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <input
         type="password"
@@ -34,6 +39,7 @@ const AuthForm = ({ mode, onSubmit }) => {
         value={formData.password}
         onChange={handleChange}
         required
+        className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       {mode === "register" && (
         <input
@@ -43,9 +49,12 @@ const AuthForm = ({ mode, onSubmit }) => {
           value={formData.nickname}
           onChange={handleChange}
           required
+          className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       )}
-      <button type="submit">{mode === "login" ? "로그인" : "회원가입"}</button>
+      <Button type="submit" className="bg-red-500 hover:bg-red-400 text-white">
+        {mode === "login" ? "로그인" : "회원가입"}
+      </Button>
     </form>
   );
 };

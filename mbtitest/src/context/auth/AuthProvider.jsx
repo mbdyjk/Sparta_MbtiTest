@@ -9,7 +9,6 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log("🔍 토큰 확인:", token);
     if (token) {
       getUserProfile(token)
         .then((user) => {

@@ -3,17 +3,25 @@ import axios from "axios";
 const API_URL = "https://www.nbcamp-react-auth.link";
 
 export const register = async (userData) => {
-  const response = await axios.post(`${API_URL}/register`, userData);
-  return response.data;
+  try {
+    const response = await axios.post(`${API_URL}/register`, userData);
+    return response.data;
+  } catch (error) {
+    const errorMessage =
+      error.response?.data?.message || error.message || "로그인 실패";
+    throw new Error(errorMessage);
+  }
 };
 
 export const login = async (userData) => {
   try {
     const response = await axios.post(`${API_URL}/login`, userData);
     return response.data;
-    // eslint-disable-next-line no-unused-vars
   } catch (error) {
-    throw new Error("로그인 실패: 아이디 또는 비밀번호를 확인하세요.");
+    // 서버 메세지 또는 axios 오류 객체에서 제공하는 메세지 또는 기본 메세지를 반환
+    const errorMessage =
+      error.response?.data?.message || error.message || "로그인 실패";
+    throw new Error(errorMessage);
   }
 };
 

@@ -31,7 +31,7 @@ const Test = ({ user }) => {
   };
 
   const handleNavigateToResults = () => {
-    navigate("/results");
+    navigate("/testresultyjko");
   };
 
   return (

@@ -1,22 +1,26 @@
 import AuthForm from "../components/AuthForm";
 import NavLink from "../components/common/NavLink";
-import { loginUser } from "../api/auth";
+import { login } from "../api/auth";
 import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({ id: "", password: "" });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleLogin = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // 폼이 제출되었을 때 새로고침 방지
     try {
-      const user = await loginUser(formData);
-      console.log("로그인 성공:", user);
+      await login(formData);
+      toast.success("로그인 성공!");
+      navigate("/");
     } catch (error) {
-      console.error(error);
+      toast.error(error.message);
     }
   };
 
@@ -28,7 +32,7 @@ const Login = () => {
           mode="login"
           formData={formData}
           handleChange={handleChange}
-          onSubmit={handleLogin}
+          handleSubmit={handleLogin}
         />
         <div className="mt-4 text-center">
           <p>
@@ -39,6 +43,7 @@ const Login = () => {
           </p>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

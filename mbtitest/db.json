@@ -1,3 +1,54 @@
 {
-  "testResults": []
+  "users": [
+    {
+      "id": "yjko",
+      "username": "yjko",
+      "password": "1234",
+      "email": "yjko@example.com"
+    }
+  ],
+  "testResults": [
+    {
+      "id": "fc9f",
+      "userId": "guest",
+      "mbti": "ESTJ",
+      "timestamp": "2025-02-25T05:22:00.370Z"
+    },
+    {
+      "id": "7445",
+      "userId": "guest",
+      "mbti": "ESTJ",
+      "timestamp": "2025-02-25T05:23:14.714Z"
+    },
+    {
+      "id": "80cc",
+      "userId": "guest",
+      "mbti": "ESTJ",
+      "timestamp": "2025-02-25T05:23:31.698Z"
+    },
+    {
+      "id": "2f6d",
+      "userId": "guest",
+      "mbti": "ESTJ",
+      "timestamp": "2025-02-25T05:38:57.129Z"
+    },
+    {
+      "id": "1c7a",
+      "userId": "yjko",
+      "mbti": "ESTJ",
+      "timestamp": "2025-02-25T05:40:03.512Z"
+    },
+    {
+      "id": "01b0",
+      "userId": "yjko",
+      "mbti": "ESTJ",
+      "timestamp": "2025-02-25T06:19:06.863Z"
+    },
+    {
+      "id": "ecbc",
+      "userId": "yjko",
+      "mbti": "INFJ",
+      "timestamp": "2025-02-25T06:36:30.638Z"
+    }
+  ]
 }

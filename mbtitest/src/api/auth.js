@@ -17,6 +17,31 @@ export const login = async (userData) => {
   }
 };
 
-export const getUserProfile = async () => {};
+export const getUserProfile = async (token) => {
+  try {
+    const response = await axios.get(`${API_URL}/user`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+    // eslint-disable-next-line no-unused-vars
+  } catch (error) {
+    throw new Error("데이터 로드 실패: 사용자 정보를 불러올 수 없습니다.");
+  }
+};
 
-export const updateProfile = async () => {};
+export const updateProfile = async (formData, token) => {
+  try {
+    const response = await axios.patch(`${API_URL}/profile`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+    // eslint-disable-next-line no-unused-vars
+  } catch (error) {
+    throw new Error("업데이트 실패: 프로필 업데이트 실패");
+  }
+};

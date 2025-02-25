@@ -1,3 +1,30 @@
 {
-  "testResults": []
+  "users": [
+    {
+      "id": "yjko",
+      "username": "yjko",
+      "password": "1234",
+      "email": "yjko@example.com"
+    }
+  ],
+  "testResults": [
+    {
+      "id": "fc9f",
+      "userId": "guest",
+      "mbti": "ESTJ",
+      "timestamp": "2025-02-25T05:22:00.370Z"
+    },
+    {
+      "id": "7445",
+      "userId": "guest",
+      "mbti": "ESTJ",
+      "timestamp": "2025-02-25T05:23:14.714Z"
+    },
+    {
+      "id": "80cc",
+      "userId": "guest",
+      "mbti": "ESTJ",
+      "timestamp": "2025-02-25T05:23:31.698Z"
+    }
+  ]
 }

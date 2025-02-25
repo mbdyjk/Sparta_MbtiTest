@@ -16,10 +16,10 @@ const Login = () => {
   };
 
   const handleLogin = async (e) => {
-    e.preventDefault(); // 폼이 제출되었을 때 새로고침 방지
+    e.preventDefault();
     try {
-      const user = await login(formData);
-      setLogin(user);
+      const { accessToken, user } = await login(formData);
+      setLogin(user, accessToken);
       toast.success("로그인 성공!");
       navigate("/");
     } catch (error) {

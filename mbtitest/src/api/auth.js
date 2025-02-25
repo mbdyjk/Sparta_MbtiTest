@@ -8,7 +8,7 @@ export const register = async (userData) => {
     return response.data;
   } catch (error) {
     const errorMessage =
-      error.response?.data?.message || error.message || "로그인 실패";
+      error.response?.data?.message || error.message || "회원가입 실패";
     throw new Error(errorMessage);
   }
 };
@@ -16,7 +16,12 @@ export const register = async (userData) => {
 export const login = async (userData) => {
   try {
     const response = await axios.post(`${API_URL}/login`, userData);
-    return response.data;
+    const { accessToken, user } = response.data;
+
+    // 로그인 후 토큰을 저장
+    localStorage.setItem("token", accessToken);
+
+    return { accessToken, user };
   } catch (error) {
     // 서버 메세지 또는 axios 오류 객체에서 제공하는 메세지 또는 기본 메세지를 반환
     const errorMessage =

@@ -1,16 +1,18 @@
-import { useLocation } from "react-router-dom";
-import { calculateMBTI, mbtiDescriptions } from "../utils/mbtiCalculator";
+import TestResultList from "../components/TestResultList";
+import PropTypes from "prop-types";
 
-const TestResult = () => {
-  const location = useLocation();
-  const mbti = calculateMBTI(location.state.answers);
-
+const TestResult = ({ user }) => {
   return (
-    <div className="p-6 text-center">
-      <h1 className="text-2xl font-bold">당신의 MBTI 유형은 {mbti}입니다!</h1>
-      <p className="mt-4">{mbtiDescriptions[mbti]}</p>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-6">
+      <TestResultList user={user} />
     </div>
   );
+};
+
+TestResult.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.string,
+  }),
 };
 
 export default TestResult;

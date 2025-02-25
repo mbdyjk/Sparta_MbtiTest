@@ -1,7 +1,9 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
+// eslint-disable-next-line no-unused-vars
 const Profile = ({ user, setUser }) => {
+  // eslint-disable-next-line no-unused-vars
   const [nickname, setNickname] = useState(user?.nickname || "");
 
   const handleNicknameChange = (e) => {

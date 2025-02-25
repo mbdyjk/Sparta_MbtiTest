@@ -19,7 +19,6 @@ const TestResultList = ({ user }) => {
       <p className="text-center text-red-500">오류 발생: {error.message}</p>
     );
 
-  console.log(user);
   const filteredResults = testResults?.filter(
     (result) => result.visibility || result.userId === user.userId
   );

@@ -18,7 +18,6 @@ export const login = async (userData) => {
     const response = await axios.post(`${API_URL}/login`, userData);
     const user = response.data;
 
-    console.log(user);
     // 로그인 후 토큰을 저장
     localStorage.setItem("token", user.accessToken);
 

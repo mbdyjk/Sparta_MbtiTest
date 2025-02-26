@@ -1,26 +1,57 @@
 import axios from "axios";
 
-const API_URL = "https://leaf-discovered-casquette.glitch.me";
+const API_URL = "https://leaf-discovered-casquette.glitch.me/testResults";
 
 // 결과 조회
 export const getTestResults = async () => {
-  const response = await axios.get(API_URL);
-  return response.data;
+  try {
+    const response = await axios.get(API_URL, {
+      headers: { Accept: "application/json" },
+    });
+    console.log("API Response:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching test results:", error);
+    return [];
+  }
 };
 
 // 결과 저장
 export const createTestResult = async (resultData) => {
-  const response = await axios.post(API_URL, resultData);
-  return response.data;
+  try {
+    const response = await axios.post(API_URL, resultData, {
+      headers: { "Content-Type": "application/json" },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error creating test result:", error);
+    throw error;
+  }
 };
 
 // 결과 삭제
 export const deleteTestResult = async (id) => {
-  await axios.delete(`${API_URL}/${id}`);
+  try {
+    await axios.delete(`${API_URL}/${id}`);
+  } catch (error) {
+    console.error("Error deleting test result:", error);
+    throw error;
+  }
 };
 
 // 결과 공개 여부 변경
 export const updateTestResultVisibility = async (id, visibility) => {
-  const response = await axios.patch(`${API_URL}/${id}`, { visibility });
-  return response.data;
+  try {
+    const response = await axios.patch(
+      `${API_URL}/${id}`,
+      { visibility },
+      {
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error updating test result visibility:", error);
+    throw error;
+  }
 };

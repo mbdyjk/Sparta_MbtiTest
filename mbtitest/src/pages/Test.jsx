@@ -18,6 +18,7 @@ const Test = () => {
     setResult(mbtiResult);
 
     try {
+      console.log(currentUser?.userId);
       await createTestResult({
         userId: currentUser?.userId || "guest",
         mbti: mbtiResult,

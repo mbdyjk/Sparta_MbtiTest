@@ -8,7 +8,6 @@ export const getTestResults = async () => {
     const response = await axios.get(API_URL, {
       headers: { Accept: "application/json" },
     });
-    console.log("API Response:", response.data);
     return response.data;
   } catch (error) {
     console.error("Error fetching test results:", error);
